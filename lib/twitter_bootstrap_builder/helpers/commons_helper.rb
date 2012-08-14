@@ -38,6 +38,10 @@ module TwitterBootstrapBuilder
         Builders::NavBarBuilder.new(self, &block).html_safe
       end
 
+      def nav_list(&block)
+        Builders::NavListBuilder.new(self, &block).html_safe
+      end
+
       def well(size=nil, &block)
         well = TwitterBootstrapMarkup::Well.new(capture(&block))
         well.send(size) if size

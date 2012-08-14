@@ -1,12 +1,15 @@
 module TwitterBootstrapBuilder
   module Builders
-    class NavContainerBuilder < Base
+    class NavListBuilder < Base
 
       def to_s
-        nav_container = NavContainer.new
-        nav_container.pull_right if options[:align] == :right
-        nav_container.append template.capture(self, &block) if block
-        nav_container.to_s
+        nav_list = NavList.new
+        nav_list.append template.capture(self, &block) if block
+        nav_list.to_s
+      end
+
+      def header(text)
+        NavHeader.new(text).to_s.html_safe
       end
 
       def link_to(*args, &block)
@@ -24,10 +27,6 @@ module TwitterBootstrapBuilder
 
       def divider
         Tag.block(:li, Divider.vertical).to_s.html_safe
-      end
-
-      def dropdown_link(text, &block)
-        Tag.block(:li, DropDownLinkBuilder.new(template, text: text, &block).html_safe).to_s.html_safe
       end
 
     end
