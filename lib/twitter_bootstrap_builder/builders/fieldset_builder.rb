@@ -34,6 +34,30 @@ module TwitterBootstrapBuilder
         end.to_s.html_safe
       end
 
+      TwitterBootstrapMarkup::InputSize::VALUES.each do |size|
+        define_method "text_field_#{size}" do |method, options={}|
+          ControlGroup.new(model.class.human_attribute_name(method), for: "#{form_builder.object_name}_#{method}") do |cg|
+            options.append!(:class, "input-#{size}")
+            cg.append form_builder.text_field(method, options)
+          end.to_s.html_safe
+        end
+      end
+
+      def text_area(method, options={})
+        ControlGroup.new(model.class.human_attribute_name(method), for: "#{form_builder.object_name}_#{method}") do |cg|
+          cg.append form_builder.text_area(method, options)
+        end.to_s.html_safe
+      end
+
+      TwitterBootstrapMarkup::InputSize::VALUES.each do |size|
+        define_method "text_area_#{size}" do |method, options={}|
+          ControlGroup.new(model.class.human_attribute_name(method), for: "#{form_builder.object_name}_#{method}") do |cg|
+            options.append!(:class, "input-#{size}")
+            cg.append form_builder.text_area(method, options)
+          end.to_s.html_safe
+        end
+      end
+
       def email_field(method, options={})
         ControlGroup.new(model.class.human_attribute_name(method), for: "#{form_builder.object_name}_#{method}") do |cg|
           cg.append form_builder.email_field(method, options)
