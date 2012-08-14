@@ -74,6 +74,10 @@ module TwitterBootstrapBuilder
         Builders::FieldsetBuilder.new(self, model: model, &block).html_safe
       end
 
+      def fieldset_horizontal(&block)
+        Builders::FieldsetBuilder.new(self, &block).html_safe
+      end
+
       def dropdown_link(text, &block)
         Builders::DropDownLinkBuilder.new(self, text: text, &block).html_safe
       end
