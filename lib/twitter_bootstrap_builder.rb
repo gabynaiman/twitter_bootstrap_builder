@@ -2,6 +2,7 @@ require 'twitter_bootstrap_builder/version'
 require 'twitter_bootstrap_builder/engine'
 
 require 'twitter_bootstrap_markup'
+require 'kaminari'
 
 require 'twitter_bootstrap_builder/helpers/commons_helper'
 require 'twitter_bootstrap_builder/helpers/buttons_helper'
