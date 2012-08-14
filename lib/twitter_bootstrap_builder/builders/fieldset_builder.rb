@@ -34,14 +34,32 @@ module TwitterBootstrapBuilder
         end.to_s.html_safe
       end
 
+      def email_field(method, options={})
+        ControlGroup.new(model.class.human_attribute_name(method), for: "#{form_builder.object_name}_#{method}") do |cg|
+          cg.append form_builder.email_field(method, options)
+        end.to_s.html_safe
+      end
+
+      def password_field(method, options={})
+        ControlGroup.new(model.class.human_attribute_name(method), for: "#{form_builder.object_name}_#{method}") do |cg|
+          cg.append form_builder.password_field(method, options)
+        end.to_s.html_safe
+      end
+
+      def hidden_field(method, options={})
+        ControlGroup.new(model.class.human_attribute_name(method), for: "#{form_builder.object_name}_#{method}") do |cg|
+          cg.append form_builder.hidden_field(method, options)
+        end.to_s.html_safe
+      end
+
       def select(method, choices, options={}, html_options={})
         ControlGroup.new(model.class.human_attribute_name(method), for: "#{form_builder.object_name}_#{method}") do |cg|
           cg.append form_builder.select(method, choices, options, html_options)
         end.to_s.html_safe
       end
 
-      def custom_field(label, &block)
-        ControlGroup.new(label) do |cg|
+      def custom_field(label, options={}, &block)
+        ControlGroup.new(label, options) do |cg|
           cg.append template.capture(self, &block) if block
         end.to_s.html_safe
       end

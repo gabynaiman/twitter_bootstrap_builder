@@ -36,6 +36,7 @@ module TwitterBootstrapBuilder
 
       def actions(&block)
         @actions_block = block
+        nil
       end
 
       private
