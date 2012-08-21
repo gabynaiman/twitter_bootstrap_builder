@@ -45,7 +45,7 @@ module TwitterBootstrapBuilder
         Tag.block(:thead) do |thead|
           thead.append do |h|
             Tag.block(:tr) do |tr|
-              tr.append Tag.block(:th, class: 'span2')
+              tr.append Tag.block(:th)
               @fields.each do |field|
                 tr.append Tag.block(:th, model_class.human_attribute_name(field))
               end
