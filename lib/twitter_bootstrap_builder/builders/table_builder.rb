@@ -59,7 +59,7 @@ module TwitterBootstrapBuilder
           collection.each do |model|
             tbody.append do |b|
               Tag.block(:tr) do |tr|
-                tr.append Tag.block(:td, template.capture(model, &@actions_block))
+                tr.append Tag.block(:td, template.capture(model, &@actions_block), class: 'actions') if @actions_block
                 @fields.each do |field|
                   tr.append Tag.block(:td, model.send(field))
                 end
