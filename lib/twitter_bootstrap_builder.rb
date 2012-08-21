@@ -6,9 +6,12 @@ require 'kaminari'
 
 require 'twitter_bootstrap_builder/helpers/commons_helper'
 require 'twitter_bootstrap_builder/helpers/buttons_helper'
+require 'twitter_bootstrap_builder/helpers/dropdowns_helper'
 
 require 'twitter_bootstrap_builder/builders/base'
+require 'twitter_bootstrap_builder/builders/drop_down_builder'
 require 'twitter_bootstrap_builder/builders/drop_down_link_builder'
+require 'twitter_bootstrap_builder/builders/drop_down_button_builder'
 require 'twitter_bootstrap_builder/builders/fieldset_builder'
 require 'twitter_bootstrap_builder/builders/form_builder'
 require 'twitter_bootstrap_builder/builders/link_button_builder'

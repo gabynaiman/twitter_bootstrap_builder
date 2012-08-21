@@ -5,6 +5,7 @@ module TwitterBootstrapBuilder
         class ActionView::Base
           include TwitterBootstrapBuilder::Helpers::CommonsHelper
           include TwitterBootstrapBuilder::Helpers::ButtonsHelper
+          include TwitterBootstrapBuilder::Helpers::DropdownsHelper
         end
 
         class ActionView::Helpers::FormBuilder

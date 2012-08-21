@@ -1,9 +1,9 @@
 module TwitterBootstrapBuilder
   module Builders
-    class DropDownLinkBuilder < DropDownBuilder
+    class DropDownButtonBuilder < DropDownBuilder
 
       def dropdown_class
-        DropdownLink
+        DropdownButton
       end
 
     end

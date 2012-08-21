@@ -78,10 +78,6 @@ module TwitterBootstrapBuilder
         Builders::FieldsetBuilder.new(self, &block).html_safe
       end
 
-      def dropdown_link(text, &block)
-        Builders::DropDownLinkBuilder.new(self, text: text, &block).html_safe
-      end
-
       def icon(name)
         TwitterBootstrapMarkup::Icon.new(name).to_s.html_safe
       end
