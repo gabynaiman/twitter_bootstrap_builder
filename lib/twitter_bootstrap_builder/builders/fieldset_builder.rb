@@ -82,6 +82,24 @@ module TwitterBootstrapBuilder
         end.to_s.html_safe
       end
 
+      def date_select(method, options={}, html_options={})
+        ControlGroup.new(model.class.human_attribute_name(method), for: "#{form_builder.object_name}_#{method}") do |cg|
+          cg.append form_builder.date_select(method, form_builder.send('objectify_options', options), html_options)
+        end.to_s.html_safe
+      end
+
+      def time_select(method, options={}, html_options={})
+        ControlGroup.new(model.class.human_attribute_name(method), for: "#{form_builder.object_name}_#{method}") do |cg|
+          cg.append form_builder.time_select(method, form_builder.send('objectify_options', options), html_options)
+        end.to_s.html_safe
+      end
+
+      def datetime_select(method, options={}, html_options={})
+        ControlGroup.new(model.class.human_attribute_name(method), for: "#{form_builder.object_name}_#{method}") do |cg|
+          cg.append form_builder.datetime_select(method, form_builder.send('objectify_options', options), html_options)
+        end.to_s.html_safe
+      end
+
       def custom_field(label, options={}, &block)
         ControlGroup.new(label, options) do |cg|
           cg.append template.capture(self, &block) if block
