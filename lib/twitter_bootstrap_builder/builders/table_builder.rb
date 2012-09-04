@@ -70,7 +70,7 @@ module TwitterBootstrapBuilder
       end
 
       def pager
-        Tag.new(:div, template.paginate(collection)).pull_right if collection.respond_to?(:current_page)
+        Tag.new(:div, template.paginate(collection, theme: :twitter_bootstrap)).pull_right if collection.respond_to?(:current_page)
       end
 
     end
