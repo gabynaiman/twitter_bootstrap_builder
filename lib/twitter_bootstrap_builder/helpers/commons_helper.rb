@@ -86,6 +86,16 @@ module TwitterBootstrapBuilder
         TwitterBootstrapMarkup::Icon.white(name).to_s.html_safe
       end
 
+      TwitterBootstrapMarkup::LabelBase::TYPES.each do |type|
+        define_method "label_#{type}" do |text|
+          TwitterBootstrapMarkup::Label.send(type, text).to_s.html_safe
+        end
+
+        define_method "badge_#{type}" do |text|
+          TwitterBootstrapMarkup::Badge.send(type, text).to_s.html_safe
+        end
+      end
+
     end
   end
 end
