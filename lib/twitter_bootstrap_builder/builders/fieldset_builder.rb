@@ -24,7 +24,7 @@ module TwitterBootstrapBuilder
 
       def display_field(method)
         ControlGroup.new(model.class.human_attribute_name(method)) do |cg|
-          cg.append Tag.block(:span, model.send(method), class: 'display')
+          cg.append Tag.block(:span, model.send(method).to_s, class: 'display')
         end.to_s.html_safe
       end
 
@@ -67,6 +67,12 @@ module TwitterBootstrapBuilder
       def password_field(method, options={})
         ControlGroup.new(model.class.human_attribute_name(method), for: "#{form_builder.object_name}_#{method}") do |cg|
           cg.append form_builder.password_field(method, options)
+        end.to_s.html_safe
+      end
+
+      def check_box(method, options={})
+        ControlGroup.new(model.class.human_attribute_name(method), for: "#{form_builder.object_name}_#{method}") do |cg|
+          cg.append form_builder.check_box(method, options)
         end.to_s.html_safe
       end
 
