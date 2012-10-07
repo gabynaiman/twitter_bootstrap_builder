@@ -29,6 +29,10 @@ module TwitterBootstrapBuilder
         Tag.block(:li, Divider.vertical).to_s.html_safe
       end
 
+      def custom(&block)
+        Tag.block(:li, template.capture(self, &block)).to_s.html_safe
+      end
+
     end
   end
 end
