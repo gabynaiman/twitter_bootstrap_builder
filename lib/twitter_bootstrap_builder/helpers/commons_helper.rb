@@ -18,6 +18,16 @@ module TwitterBootstrapBuilder
         end
       end
 
+      def side_bar(partial=nil, &block)
+        if partial
+          content_for(:side_bar) { render "layouts/#{partial}" }
+        elsif block
+          content_for(:side_bar, &block)
+        else
+          content_for?(:side_bar) ? content_for(:side_bar) : nil
+        end
+      end
+
       def alert_message
         unless content_for?(:alert_message)
           if flash[:danger]
