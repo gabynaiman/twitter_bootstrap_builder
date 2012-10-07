@@ -26,7 +26,7 @@ module TwitterBootstrapBuilder
       end
 
       def divider
-        Tag.block(:li, Divider.vertical).to_s.html_safe
+        Tag.block(:li, Divider.horizontal).to_s.html_safe
       end
 
       def custom(&block)
