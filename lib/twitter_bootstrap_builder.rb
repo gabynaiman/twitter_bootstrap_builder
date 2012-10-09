@@ -19,5 +19,6 @@ require 'twitter_bootstrap_builder/builders/nav_bar_builder'
 require 'twitter_bootstrap_builder/builders/nav_container_builder'
 require 'twitter_bootstrap_builder/builders/nav_list_builder'
 require 'twitter_bootstrap_builder/builders/submit_button_builder'
+require 'twitter_bootstrap_builder/builders/tab_builder'
 require 'twitter_bootstrap_builder/builders/table_builder'
 
