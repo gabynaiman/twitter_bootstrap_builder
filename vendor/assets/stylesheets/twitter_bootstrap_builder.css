@@ -27,3 +27,7 @@ body {
     border: 1px solid #b94a48;
     background-color: #f2dede;
 }
+
+.tab-content {
+    overflow: visible;
+}
