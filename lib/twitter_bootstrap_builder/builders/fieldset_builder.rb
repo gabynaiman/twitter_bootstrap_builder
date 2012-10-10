@@ -22,8 +22,8 @@ module TwitterBootstrapBuilder
         actions.to_s.html_safe
       end
 
-      def display_field(method)
-        ControlGroup.new(model.class.human_attribute_name(method)) do |cg|
+      def display_field(method, options={})
+        ControlGroup.new(options[:label] || model.class.human_attribute_name(method)) do |cg|
           cg.append Tag.block(:span, model.send(method).to_s.gsub("\n", '<br>'), class: 'display')
         end.to_s.html_safe
       end
