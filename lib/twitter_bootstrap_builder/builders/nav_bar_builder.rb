@@ -9,7 +9,7 @@ module TwitterBootstrapBuilder
       end
 
       def brand(title, url)
-        Brand.new(title, url).to_s.html_safe
+        Brand.new(title, url).html_safe
       end
 
       def container(&block)

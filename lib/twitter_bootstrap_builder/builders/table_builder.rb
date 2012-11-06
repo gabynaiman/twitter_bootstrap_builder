@@ -18,7 +18,7 @@ module TwitterBootstrapBuilder
             end
           end
           data.append pager
-        end.to_s.html_safe
+        end.html_safe
       end
 
       def collection

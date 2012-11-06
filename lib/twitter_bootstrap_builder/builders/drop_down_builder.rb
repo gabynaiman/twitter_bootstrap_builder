@@ -12,7 +12,7 @@ module TwitterBootstrapBuilder
       end
 
       def link_to(*args, &block)
-        Tag.block(:li, template.link_to(*args, &block)).to_s.html_safe
+        Tag.block(:li, template.link_to(*args, &block)).html_safe
       end
 
     end

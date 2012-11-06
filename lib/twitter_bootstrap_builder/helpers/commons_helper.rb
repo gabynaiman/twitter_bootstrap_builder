@@ -12,7 +12,7 @@ module TwitterBootstrapBuilder
 
       def page_header(*args)
         if args.any?
-          content_for(:page_header, TwitterBootstrapMarkup::PageHeader.new(args.shift, args.shift).to_s.html_safe)
+          content_for(:page_header, TwitterBootstrapMarkup::PageHeader.new(args.shift, args.shift).html_safe)
         else
           content_for?(:page_header) ? content_for(:page_header) : nil
         end
@@ -59,7 +59,7 @@ module TwitterBootstrapBuilder
       def well(size=nil, &block)
         well = TwitterBootstrapMarkup::Well.new(capture(&block))
         well.send(size) if size
-        well.to_s.html_safe
+        well.html_safe
       end
 
       def well_small(&block)
@@ -76,7 +76,7 @@ module TwitterBootstrapBuilder
 
       TwitterBootstrapMarkup::Alert::TYPES.each do |type|
         define_method "alert_#{type}" do |message|
-          content_for(:alert_message, TwitterBootstrapMarkup::Alert.new(message).send(type).closable.to_s.html_safe)
+          content_for(:alert_message, TwitterBootstrapMarkup::Alert.new(message).send(type).closable.html_safe)
         end
       end
 
@@ -93,20 +93,20 @@ module TwitterBootstrapBuilder
       end
 
       def icon(name)
-        TwitterBootstrapMarkup::Icon.new(name).to_s.html_safe
+        TwitterBootstrapMarkup::Icon.new(name).html_safe
       end
 
       def icon_white(name)
-        TwitterBootstrapMarkup::Icon.white(name).to_s.html_safe
+        TwitterBootstrapMarkup::Icon.white(name).html_safe
       end
 
       TwitterBootstrapMarkup::LabelBase::TYPES.each do |type|
         define_method "label_#{type}" do |text|
-          TwitterBootstrapMarkup::Label.send(type, text).to_s.html_safe
+          TwitterBootstrapMarkup::Label.send(type, text).html_safe
         end
 
         define_method "badge_#{type}" do |text|
-          TwitterBootstrapMarkup::Badge.send(type, text).to_s.html_safe
+          TwitterBootstrapMarkup::Badge.send(type, text).html_safe
         end
       end
 
