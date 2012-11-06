@@ -4,7 +4,7 @@ module TwitterBootstrapBuilder
 
       def initialize(*args, &block)
         super
-        @fields = []
+        @fields = {}
       end
 
       def to_s
@@ -29,8 +29,8 @@ module TwitterBootstrapBuilder
         options[:model_class] || collection.klass
       end
 
-      def field(method)
-        @fields << method
+      def field(method, &block)
+        @fields[method] = block
         nil
       end
 
@@ -46,7 +46,7 @@ module TwitterBootstrapBuilder
           thead.append do |h|
             Tag.block(:tr) do |tr|
               tr.append Tag.block(:th)
-              @fields.each do |field|
+              @fields.keys.each do |field|
                 tr.append Tag.block(:th, model_class.human_attribute_name(field))
               end
             end
@@ -60,8 +60,8 @@ module TwitterBootstrapBuilder
             tbody.append do |b|
               Tag.block(:tr) do |tr|
                 tr.append Tag.block(:td, template.capture(model, &@actions_block), class: 'actions') if @actions_block
-                @fields.each do |field|
-                  tr.append Tag.block(:td, model.send(field))
+                @fields.each do |field, block|
+                  tr.append Tag.block(:td, (block ? template.capture(model, &block) : model.send(field)))
                 end
               end
             end
