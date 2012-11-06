@@ -21,3 +21,7 @@ Array.prototype.uniq = function () {
         return i == a.indexOf(itm);
     });
 };
+
+jQuery(function ($) {
+    $("[rel=popover]").popover();
+});
