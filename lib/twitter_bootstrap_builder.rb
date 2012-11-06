@@ -4,6 +4,8 @@ require 'twitter_bootstrap_builder/engine'
 require 'twitter_bootstrap_markup'
 require 'kaminari'
 
+require 'twitter_bootstrap_builder/extensions/twitter_bootstrap_markup'
+
 require 'twitter_bootstrap_builder/helpers/commons_helper'
 require 'twitter_bootstrap_builder/helpers/buttons_helper'
 require 'twitter_bootstrap_builder/helpers/dropdowns_helper'
