@@ -24,4 +24,5 @@ Array.prototype.uniq = function () {
 
 jQuery(function ($) {
     $("[rel=popover]").popover();
+    $("[rel=tooltip]").tooltip();
 });
