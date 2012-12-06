@@ -92,22 +92,30 @@ module TwitterBootstrapBuilder
         Builders::FieldsetBuilder.new(self, &block).html_safe
       end
 
-      def icon(name)
-        TwitterBootstrapMarkup::Icon.new(name).html_safe
+      def icon(*args)
+        TwitterBootstrapMarkup::Icon.new(*args).html_safe
       end
 
-      def icon_white(name)
-        TwitterBootstrapMarkup::Icon.white(name).html_safe
+      def icon_white(*args)
+        TwitterBootstrapMarkup::Icon.white(*args).html_safe
       end
 
       TwitterBootstrapMarkup::LabelBase::TYPES.each do |type|
-        define_method "label_#{type}" do |text|
-          TwitterBootstrapMarkup::Label.send(type, text).html_safe
+        define_method "label_#{type}" do |*args|
+          TwitterBootstrapMarkup::Label.send(type, *args).html_safe
         end
 
-        define_method "badge_#{type}" do |text|
-          TwitterBootstrapMarkup::Badge.send(type, text).html_safe
+        define_method "badge_#{type}" do |*args|
+          TwitterBootstrapMarkup::Badge.send(type, *args).html_safe
         end
+      end
+
+      def label(*args)
+        TwitterBootstrapMarkup::Label.new(*args).html_safe
+      end
+
+      def badge(*args)
+        TwitterBootstrapMarkup::Badge.new(*args).html_safe
       end
 
     end

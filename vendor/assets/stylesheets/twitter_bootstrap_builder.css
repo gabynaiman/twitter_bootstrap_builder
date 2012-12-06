@@ -31,3 +31,27 @@ body {
 .tab-content {
     overflow: visible;
 }
+
+.color-default {
+    background-color: #999999;
+}
+
+.color-info {
+    background-color: #3a87ad;
+}
+
+.color-success {
+    background-color: #468847;
+}
+
+.color-warning {
+    background-color: #f89406;
+}
+
+.color-important {
+    background-color: #b94a48;
+}
+
+.color-inverse {
+    background-color: #333333;
+}
