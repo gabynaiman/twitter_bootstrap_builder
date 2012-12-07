@@ -100,6 +100,14 @@ module TwitterBootstrapBuilder
         TwitterBootstrapMarkup::Icon.white(*args).html_safe
       end
 
+      def label(*args)
+        TwitterBootstrapMarkup::Label.new(*args).html_safe
+      end
+
+      def badge(*args)
+        TwitterBootstrapMarkup::Badge.new(*args).html_safe
+      end
+
       TwitterBootstrapMarkup::LabelBase::TYPES.each do |type|
         define_method "label_#{type}" do |*args|
           TwitterBootstrapMarkup::Label.send(type, *args).html_safe
@@ -110,12 +118,30 @@ module TwitterBootstrapBuilder
         end
       end
 
-      def label(*args)
-        TwitterBootstrapMarkup::Label.new(*args).html_safe
+      def progress_bar(*args)
+        TwitterBootstrapMarkup::ProgressBar.new(*args).html_safe
       end
 
-      def badge(*args)
-        TwitterBootstrapMarkup::Badge.new(*args).html_safe
+      def progress_bar_striped(*args)
+        TwitterBootstrapMarkup::ProgressBar.new(*args).striped.html_safe
+      end
+
+      def progress_bar_striped_animated(*args)
+        TwitterBootstrapMarkup::ProgressBar.new(*args).striped_animated.html_safe
+      end
+
+      TwitterBootstrapMarkup::ProgressBar::TYPES.each do |type|
+        define_method "progress_bar_#{type}" do |*args|
+          TwitterBootstrapMarkup::ProgressBar.send(type, *args).html_safe
+        end
+
+        define_method "progress_bar_#{type}_striped" do |*args|
+          TwitterBootstrapMarkup::ProgressBar.send("#{type}_striped", *args).html_safe
+        end
+
+        define_method "progress_bar_#{type}_striped_animated" do |*args|
+          TwitterBootstrapMarkup::ProgressBar.send("#{type}_striped_animated", *args).html_safe
+        end
       end
 
     end
