@@ -15,6 +15,6 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = TwitterBootstrapBuilder::VERSION
 
-  gem.add_dependency 'twitter_bootstrap_markup'
+  gem.add_dependency 'twitter_bootstrap_markup', '0.0.4'
   gem.add_dependency 'kaminari'
 end
