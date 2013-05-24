@@ -1,5 +1,7 @@
 # TwitterBootstrapBuilder
 
+[![Gem Version](https://badge.fury.io/rb/twitter_bootstrap_builder.png)](https://rubygems.org/gems/twitter_bootstrap_builder)
+
 TODO: Write a gem description
 
 ## Installation
